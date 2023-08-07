@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class DialougeController : MonoBehaviour
 {
     [SerializeField] private DialougeView _dialougeView;
-    [SerializeField] private DialougeData _dialouge01;
+    [SerializeField] private DialougeData[] _dialouge;
+    private int _counter=0;
 
     private void Update()
     {
-        if (Keyboard.current.qKey.wasPressedThisFrame)
+        //make 'slideshow' of text, one click advances dialouge number
+        if (_counter < _dialouge.Length)
         {
-            _dialougeView.Display(_dialouge01);
+            if (Input.GetMouseButtonDown(0))
+            {
+                /* if (_dialouge[i].checkRespond() = true)
+                 {
+
+                 }*/
+                _dialougeView.Display(_dialouge[_counter]);
+                _counter++;
+            }
         }
     }
 }
