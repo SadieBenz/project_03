@@ -11,14 +11,11 @@ public class DialougeData : ScriptableObject
     [SerializeField] private string _characterName = "...";
     [SerializeField] private Sprite _portrait = null;
     [SerializeField] private bool _respondTo = false;
+    [SerializeField] private bool _displayNot = false;
 
     public string Dialouge => _dialouge;
     public string CharacterName => _characterName;
     public Sprite Portriat => _portrait;
     public bool RespondTo => _respondTo;
-
-    public bool checkRespond()
-    {
-        return RespondTo;
-    }
+    public bool DisplayNot => _displayNot;
 }
